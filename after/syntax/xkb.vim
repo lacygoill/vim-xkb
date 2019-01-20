@@ -1,12 +1,11 @@
-" syntax {{{1
-
-syn region xkbBackticks matchgroup=Comment start=/`/ end=/`/ oneline concealends containedin=xkbComment
-
-" replace noisy markers, used in folds, with ❭ and ❬
-exe 'syn match confFoldMarkers  :\%(//\)\=\s*{'.'{{\d*\s*\ze\n:  conceal cchar=❭  containedin=xkbComment'
-exe 'syn match confFoldMarkers  :\%(//\)\=\s*}'.'}}\d*\s*\ze\n:  conceal cchar=❬  containedin=xkbComment'
-
-" colors {{{1
-
-hi link  xkbBackticks  Backticks
+" Redefine the `xkbParen` group to exclude all the syntax groups in our `xkbMyCustomGroups` cluster.{{{
+"
+" The latter is defined in `lg#styled_comment#syntax()`:
+"
+"     ~/.vim/plugged/vim-lg-lib/autoload/lg/styled_comment.vim
+"}}}
+syn clear xkbParen xkbBrace xkbBracket
+syn region xkbParen start='(' end=')' contains=ALLBUT,xkbParenError,xkbSpecial,xkbTodo,@xkbMyCustomGroups transparent
+syn region xkbBrace start='{' end='}' contains=ALLBUT,xkbBraceError,xkbSpecial,xkbTodo,@xkbMyCustomGroups transparent
+syn region xkbBracket start='\[' end='\]' contains=ALLBUT,xkbBracketError,xkbSpecial,xkbTodo,@xkbMyCustomGroups transparent
 
