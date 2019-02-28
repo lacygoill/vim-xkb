@@ -3,6 +3,6 @@ if exists('did_load_filetypes')
 endif
 
 augroup filetypedetect
-    au! BufRead,BufNewFile $HOME/.config/xkb/* setf xkb
+    au! BufRead,BufNewFile $HOME/.config/**/xkb/* setf xkb
 augroup END
 
