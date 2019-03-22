@@ -1,6 +1,6 @@
 " Options "{{{1
 
-setl cms=//%s
+setl cms=//\ %s
 
 " Teardown {{{1
 
