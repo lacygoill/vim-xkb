@@ -1,9 +1,11 @@
-" Options "{{{1
+vim9script
 
-setl cms=//\ %s
+# Options {{{1
 
-" Teardown {{{1
+&l:commentstring = '// %s'
 
-let b:undo_ftplugin = get(b:, 'undo_ftplugin', 'exe')
-    \ .. '| set cms<'
+# Teardown {{{1
+
+b:undo_ftplugin = get(b:, 'undo_ftplugin', 'exe')
+    .. '| set commentstring<'
 
